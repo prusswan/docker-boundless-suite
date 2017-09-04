@@ -10,7 +10,7 @@ Docker para [boundless suite](https://boundlessgeo.com/).
 Dejamos expuesto postgis en el puerto 5433 para poder generar conexiones desde scripts, si no deseas que el puerto quede expuesto puedes eliminar "-p 5433:5432"
 
 - Correr boundless suite
-  1. Primero clona este repo ```$ git clone https://github.com/leodc/boundless-suite-docker.git```
+  1. Primero clona este repo ```$ git clone https://github.com/mxabierto/docker-boundless-suite```
   2. Construye el docker localmente ```$ docker build -t cedn/boundless boundless-suite-docker```
   3. Inicia el docker: ```$ docker run --name "boundless"  --link postgis:postgres -p 8080:8080 -d -t cedn/boundless```
 
