@@ -11,7 +11,7 @@ Dejamos expuesto postgis en el puerto 5433 para poder generar conexiones desde s
 
 - Correr boundless suite
   1. Primero clona este repo ```$ git clone https://github.com/mxabierto/docker-boundless-suite```
-  2. Construye el docker localmente ```$ docker build -t cedn/boundless boundless-suite-docker```
+  2. Construye el docker localmente ```$ docker build -t cedn/boundless docker-boundless-suite```
   3. Inicia el docker: ```$ docker run --name "boundless"  --link postgis:postgres -p 8080:8080 -d -t cedn/boundless```
 
 ## Uso
