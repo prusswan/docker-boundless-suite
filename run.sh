@@ -8,7 +8,7 @@ docker run --name postgis_boundless -e POSTGRES_PASSWORD=$DOCKER_POSTGIS_PASSWOR
 
 
 # boundless
-echo "building boundless in port $DOCKER_GEOSERVER_PORT"
+echo "building boundless in port $DOCKER_BOUNDLESS_PORT"
 git clone https://github.com/mxabierto/docker-boundless-suite
 docker build -t cedn/boundless docker-boundless-suite
-docker run --name boundless --link postgis_boundless:postgres -p $DOCKER_GEOSERVER_PORT:8080 -d -t cedn/boundless
+docker run --name boundless --link postgis_boundless:postgres -p $DOCKER_BOUNDLESS_PORT:8080 -d -t cedn/boundless
