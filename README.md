@@ -3,13 +3,18 @@
 Docker para [boundless suite](https://boundlessgeo.com/).
 
 ## Inicializar
+Clona este repo:
+- ```$ git clone https://github.com/mxabierto/docker-boundless-suite```
+
 Establece las siguientes variables de entorno:
 - DOCKER_POSTGIS_PORT=5433
 - DOCKER_POSTGIS_PASSWORD=postgres
 - DOCKER_POSTGIS_USER=postgres
 - DOCKER_BOUNDLESS_PORT=8090
 
-Ejecuta el script:```$ sh run.sh```
+Ejecuta el script:
+-```$ cd docker-boundless-suite```
+- ```$ sh run.sh```
 
 ## Uso
 Con los dockers iniciados puedes consultar ```localhost:DOCKER_BOUNDLESS_PORT/dashboard``` para ver las aplicaciones instaladas.
