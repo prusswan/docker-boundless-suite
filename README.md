@@ -13,7 +13,7 @@ Establece las siguientes variables de entorno:
 - DOCKER_BOUNDLESS_PORT=8090
 
 Ejecuta el script:
--```$ cd docker-boundless-suite```
+- ```$ cd docker-boundless-suite```
 - ```$ sh run.sh```
 
 ## Uso
