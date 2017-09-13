@@ -1,5 +1,5 @@
 FROM tomcat:8.0-jre8
-MAINTAINER Leo Castañeda<leodcastaneda@gmail.com>
+MAINTAINER Leo Castañeda<leonel.castaneda@datos.mx>
 
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
@@ -13,6 +13,8 @@ RUN wget https://www.dropbox.com/s/15ot9ubx35mr0aa/BoundlessSuite-4.9.1-war.zip?
 RUN unzip boundless.zip
 
 RUN mv ./BoundlessSuite-latest-war/* ./webapps
+
+EXPOSE 8080
 
 # cleanning
 RUN rm -rf boundless.zip ./BoundlessSuite-latest-war
