@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  boundless:
+    build: .
+    container_name: boundless
+    environment:
+      JAVA_OPTS: '-Xms256m   -Xmx756m   -XX:SoftRefLRUPolicyMSPerMB=36000   -XX:-UsePerfData   -Dorg.geotools.referencing.forceXY=true   -Dorg.geotoools.render.lite.scale.unitCompensation=true   -Xbootclasspath/a:/usr/local/tomcat/lib/marlin-0.7.3-Unsafe.jar   -Dsun.java2d.renderer=org.marlin.pisces.PiscesRenderingEngine   -Dsun.java2d.renderer.useThreadLocal=false -Djava.library.path="/usr/lib64 /usr/lib /usr/lib/jni"'
+    ports:
+      - "${DOCKER_BOUNDLESS_PORT}:8080"
+  postgis:
+    image: "mdillon/postgis"
+    container_name: boundless_postgis
+    environment:
+      POSTGRES_USER: ${DOCKER_POSTGIS_USER}
+      POSTGRES_PASSWORD: ${DOCKER_POSTGIS_PASSWORD}
+    ports:
+      - "${DOCKER_POSTGIS_PORT}:5432"
