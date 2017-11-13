@@ -3,18 +3,16 @@
 Docker para [boundless suite](https://boundlessgeo.com/).
 
 ## Instalación
-Clona este repo:
-- ```$ git clone https://github.com/mxabierto/docker-boundless-suite```
 
-Establece las siguientes variables de entorno ajustandolas a tus datos de conexión:
-- DOCKER_POSTGIS_PORT=5433
-- DOCKER_POSTGIS_PASSWORD=postgres
-- DOCKER_POSTGIS_USER=postgres
-- DOCKER_BOUNDLESS_PORT=8090
+1. Establece las siguientes variables de entorno:
+    - DOCKER_POSTGIS_PASSWORD=postgres
+    - DOCKER_POSTGIS_USER=postgres
+    - DOCKER_POSTGIS_PORT=5432
+    - DOCKER_BOUNDLESS_PORT=8080
+2. ```$ git clone https://github.com/mxabierto/docker-boundless-suite suite```
+3. ```$ cd suite```
+4. ```$ docker-compose up```
 
-Ejecuta el script:
-- ```$ cd docker-boundless-suite```
-- ```$ sh run.sh```
 
 ## Suite endpoints
 | Endpoint    | Description            |
@@ -77,7 +75,7 @@ srs=EPSG:4326&
 format=image/svg
 ```
 
-#### GetFeatureInfo 
+#### GetFeatureInfo
 Consulta los datos que se encuentran en el sistema cerca de una ubicación especificada.
 
 | Parametro     | Necesario | Descripción                                                            |
@@ -112,7 +110,7 @@ buffer=300
 ```
 
 
-### Web Feature Service (WFS) 
+### Web Feature Service (WFS)
 ``` http://10.20.55.7:8000/geoserver/cedn/wfs ```
 
 ### Operaciones
@@ -129,7 +127,7 @@ buffer=300
 ``` http://10.20.55.7:8000/geoserver/cedn/wfs?request=describeFeatureType&outputFormat=application/json ```
 
 #### GetFeature
-Para obtener todos los objetos de una capa usa el comando: 
+Para obtener todos los objetos de una capa usa el comando:
 - ``` /wfs?service=wfs&request=GetFeature&outputFormat=application/json&typeNames=cedn:a03aa4bf0_bb83_4e80_81c6_d555a8f88af4 ```
 
 Puedes usar las siguientes opciones para refinar tu busqueda:
