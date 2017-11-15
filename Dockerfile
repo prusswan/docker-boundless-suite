@@ -47,6 +47,10 @@ RUN mv geoserver webapps/ \
     suite/BoundlessSuite-latest-war/suite-docs.war \
     suite/BoundlessSuite-latest-war/wpsbuilder.war
 
+# remove apache admin
+RUN rm -rf webapps/ROOT/* \
+  && cp suite/index.jsp webapps/ROOT/
+
 # clean
 RUN rm -rf suite *.zip
 
