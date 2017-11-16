@@ -6,8 +6,8 @@ RUN apt-get -y update \
 
 # boundless
 RUN git clone https://github.com/mxabierto/docker-boundless-suite suite \
-  && wget -q https://www.dropbox.com/s/15ot9ubx35mr0aa/BoundlessSuite-4.9.1-war.zip?dl=0 -O boundless.zip \
-  && wget -q https://www.dropbox.com/s/c5j07wtmt4e9u8e/BoundlessSuite-4.9.1-ext.zip?dl=0 -O boundless-ext.zip
+  && wget -q https://github.com/mxabierto/boundless-suite/releases/download/4.9.1/BoundlessSuite-4.9.1-war.zip -O boundless.zip \
+  && wget -q https://github.com/mxabierto/boundless-suite/releases/download/4.9.1/BoundlessSuite-4.9.1-ext.zip -O boundless-ext.zip
 
 # geoserver
 RUN mkdir -v -p ./suite \
@@ -31,6 +31,7 @@ RUN cp -t geoserver/WEB-INF/lib \
     suite/BoundlessSuite-latest-ext/jdbcconfig/* \
   && cp suite/BoundlessSuite-latest-ext/marlin/marlin-0.7.3-Unsafe.jar lib
 
+
 # config files
 RUN mkdir -p -v conf/Catalina/localhost \
   && cp -t conf/Catalina/localhost/ \
@@ -52,6 +53,7 @@ RUN rm -rf webapps/ROOT/* \
   && cp suite/index.jsp webapps/ROOT/
 
 # clean
-RUN rm -rf suite *.zip
+RUN rm -rf suite *.zip \
+  && apt-get -s clean
 
 EXPOSE 8080
