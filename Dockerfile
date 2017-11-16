@@ -56,4 +56,6 @@ RUN rm -rf webapps/ROOT/* \
 RUN rm -rf suite *.zip \
   && apt-get -s clean
 
+ENV JAVA_OPTS '-Xms256m   -Xmx756m   -XX:SoftRefLRUPolicyMSPerMB=36000   -XX:-UsePerfData   -Dorg.geotools.referencing.forceXY=true   -Dorg.geotoools.render.lite.scale.unitCompensation=true   -Xbootclasspath/a:/usr/local/tomcat/lib/marlin-0.7.3-Unsafe.jar   -Dsun.java2d.renderer=org.marlin.pisces.PiscesRenderingEngine   -Dsun.java2d.renderer.useThreadLocal=false -Djava.library.path="/usr/lib64 /usr/lib /usr/lib/jni /opt/libjpeg-turbo/lib64"'
+
 EXPOSE 8080
