@@ -25,11 +25,13 @@ RUN mkdir -p /var/opt/boundless/server/geoserver/data/jdbcconfig \
   && unzip suite/BoundlessSuite-latest-war/suite-data-dir.zip -d /var/opt/boundless/server/geoserver/data
 
 # extensions
-RUN cp -t geoserver/WEB-INF/lib \
+RUN wget -q https://cytranet.dl.sourceforge.net/project/geoserver/GeoServer/2.12.0/extensions/geoserver-2.12.0-css-plugin.zip -O geoserver-css.zip \
+  && cp -t geoserver/WEB-INF/lib \
     suite/BoundlessSuite-latest-ext/vectortiles/* \
     suite/BoundlessSuite-latest-ext/wps/* \
     suite/BoundlessSuite-latest-ext/jdbcconfig/* \
-  && cp suite/BoundlessSuite-latest-ext/marlin/marlin-0.7.3-Unsafe.jar lib
+  && cp suite/BoundlessSuite-latest-ext/marlin/marlin-0.7.3-Unsafe.jar lib \
+  && unzip geoserver-css.zip -d geoserver/WEB-INF/lib/
 
 
 # config files
