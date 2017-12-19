@@ -38,7 +38,8 @@ RUN wget -q https://cytranet.dl.sourceforge.net/project/geoserver/GeoServer/2.12
 RUN mkdir -p -v conf/Catalina/localhost \
   && cp -t conf/Catalina/localhost/ \
     suite/geowebcache.xml \
-    suite/geoserver.xml
+    suite/geoserver.xml \
+  && mv -f suite/web.xml conf/
 
 # set suite
 RUN mv geoserver webapps/ \
